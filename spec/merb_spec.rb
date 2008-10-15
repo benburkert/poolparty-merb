@@ -1,10 +1,8 @@
-require "poolparty"
-include PoolParty::Resources
-
+require "#{File.dirname(__FILE__)}/spec_helper"
 require "#{File.dirname(__FILE__)}/../merb"
 
-describe "Apache spec" do
-  it "should have the class apache available" do    
+describe "Merb spec" do
+  it "should have the class Merb available" do    
     lambda {PoolPartyMerbClass.new}.should_not raise_error
   end
   describe "instance" do
@@ -12,7 +10,7 @@ describe "Apache spec" do
       @merb = PoolPartyMerbClass.new
       @merb.install
     end
-    it "should have the method enable available on the apache class" do
+    it "should have the method enable available on the merb class" do
       @merb.respond_to?(:enable).should == true
     end
     it "should call give it a package (gem) resource" do
